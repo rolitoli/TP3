@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">PregunTec</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Title_fix">Title</string>
+    <string name="Fyah">Title</string>
+    <string name="Bienveniso_fix">Bienvenido</string>
+    <string name="medium_text">Pass:</string>
+    <string name="medium_text2">Uesr</string>
+    <string name="medium_text3">User:</string>
+    <string name="button">Create User</string>
+    <string name="button2">Login</string>
+    <string name="large_text">Bienvenido</string>
+
+</resources>
