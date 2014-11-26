@@ -47,16 +47,13 @@ public class preguntas extends Activity implements OnClickListener{
 		preguntar = (Button)findViewById(R.id.bt_cr_preg);
 		carga = (Button)findViewById(R.id.bt_carga);
 		preguntar.setOnClickListener(this);
-		preguntar.setOnClickListener(this);
+		carga.setOnClickListener(this);
 		lista= (ListView)findViewById(R.id.listView1);
 		coleccion= new ArrayList<String>();
 		adaptador= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,coleccion);
 		lista.setAdapter(adaptador);
 		info.estado="";
 		new HttpAsyncTask().execute("https://fast-wildwood-5373.herokuapp.com/mostrarPreguntas");
-		
-		separar(info.estado);
-		llenaLV();
 		
 	}
 	
@@ -92,6 +89,7 @@ public class preguntas extends Activity implements OnClickListener{
         
         inputStream.close();
         info.estado=result;
+        separar(info.estado);
         return result;
         
     }
@@ -140,6 +138,7 @@ public class preguntas extends Activity implements OnClickListener{
 			Nodoespecial actual= info.preguntas.PrimerNodo;
 			while(actual!= null){
 				coleccion.add(actual.pregunta.toString()+"  Realizada por: "+ actual.noob.toString());
+				actual= actual.siguiente;
 			}
 		}
 	}

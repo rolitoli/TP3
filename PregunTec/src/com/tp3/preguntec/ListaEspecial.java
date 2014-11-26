@@ -65,13 +65,14 @@ public class ListaEspecial {
 			PrimerNodo = new Nodoespecial (usr_p,pregunta,id,tags);
 		}
 		//lista No Vacía
-		else
-		{
-			Nodoespecial aux= PrimerNodo;
-			while (aux.siguiente != null)
-				aux = aux.siguiente;
-			aux.siguiente = new Nodoespecial (usr_p,pregunta,id,tags);
-			aux.siguiente.anterior = aux;
+		else{
+			if(!esta(id)){
+				Nodoespecial aux= PrimerNodo;
+				while (aux.siguiente != null)
+					aux = aux.siguiente;
+				aux.siguiente = new Nodoespecial (usr_p,pregunta,id,tags);
+				aux.siguiente.anterior = aux;
+			}
 		}
 	}
 	
@@ -184,9 +185,23 @@ public class ListaEspecial {
 			PrimerNodo = sig;
 		}
 	}
-	public boolean contains(String cod) {
-		// TODO Auto-generated method stub
-		return false;
+	
+	public boolean esta(String id){
+		boolean band= false;
+		if (Vacialista()){
+			return false;}
+		else{
+			Nodoespecial Actual1=PrimerNodo;
+			while (Actual1 != null){
+				if(Actual1.id.equals(id)){ 
+					band= true;
+					break;
+				}
+				else{
+				Actual1=Actual1.siguiente;}
+			}
+			return band;
+		}
 	}
 	
 	

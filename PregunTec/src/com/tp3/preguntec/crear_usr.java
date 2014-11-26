@@ -43,17 +43,15 @@ public class crear_usr extends Activity implements OnClickListener {
 	
 public void onClick(View arg0) {
 		if (arg0.getId()==crear_usr.getId()){
-			crear ();
+			info.usuario= nombre.getText().toString();
+			info.pass= pass.getText().toString();
+			new HttpAsyncTask().execute("https://fast-wildwood-5373.herokuapp.com/ingresar/"+info.usuario+"/"+info.pass);
+			crear();
 		}
 	}
 
 public void crear(){
-	info.usuario= nombre.getText().toString();
-	info.pass= pass.getText().toString();
-	new HttpAsyncTask().execute("https://fast-wildwood-5373.herokuapp.com/ingresar/"+info.usuario+"/"+info.pass);
-	
 	if (info.getEstado().equals("anadido")){
-		info.estado="";
 		Intent intent= new Intent(this, preguntas.class);
 		finish();
 		startActivity(intent);
